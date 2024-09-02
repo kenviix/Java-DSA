@@ -1,6 +1,7 @@
 package DSA.practice;
 
-public class PeakInMountainArray {
+public class
+PeakInMountainArray {
     public static void main(String[] args) {
         int[] arr = {0,10,5,2};
         System.out.println(arr[SearchTarget(arr)]);
