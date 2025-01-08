@@ -85,46 +85,46 @@ import java.util.Scanner;
 
 public class Institutions {
     public static void main(String[] args) {
-        Scanner in  = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         Institution[] institutions = new Institution[4];
         for (int i = 0; i < institutions.length; i++) {
-            institutions[i] = new Institution(in.nextInt(),in.next(),in.nextInt(),in.nextInt(),in.next());
+            institutions[i] = new Institution(in.nextInt(), in.next(), in.nextInt(), in.nextInt(), in.next());
         }
         String location = in.next();
         String institutionName = in.next();
 
-        int locCleared = findNumClearancedByLoc(institutions,location);
-        if(locCleared == 0){
+        int locCleared = findNumClearancedByLoc(institutions, location);
+        if (locCleared == 0) {
             System.out.println("here are no cleared students in this particular location");
-        }else {
+        } else {
             System.out.println(locCleared);
         }
-        Institution gradeCleared = updateInstitutionGrade(institutions,institutionName);
-        if(gradeCleared == null){
+        Institution gradeCleared = updateInstitutionGrade(institutions, institutionName);
+        if (gradeCleared == null) {
             System.out.println("No Institute is available with the specified name");
-        }else {
-            System.out.println(gradeCleared.getInstitutionName()+"::"+gradeCleared.getGrade());
+        } else {
+            System.out.println(gradeCleared.getInstitutionName() + "::" + gradeCleared.getGrade());
         }
 
     }
 
-    static int findNumClearancedByLoc(Institution[] institutions,String location){
+    static int findNumClearancedByLoc(Institution[] institutions, String location) {
         int sum = 0;
-        for (Institution institution:institutions){
-            if(institution.getLocation().toLowerCase().equalsIgnoreCase(location)){
+        for (Institution institution : institutions) {
+            if (institution.getLocation().toLowerCase().equalsIgnoreCase(location)) {
                 sum += institution.getNoOfStudentsCleared();
             }
         }
         return sum;
     }
 
-    static Institution updateInstitutionGrade(Institution[] institutions,String institutionName){
-        for (Institution institution:institutions){
-            if (institution.getInstitutionName().toLowerCase().equalsIgnoreCase(institutionName)){
-                int rating = (institution.getNoOfStudentsPlaced() * 100)/institution.getNoOfStudentsCleared();
-                if(rating >= 80){
+    static Institution updateInstitutionGrade(Institution[] institutions, String institutionName) {
+        for (Institution institution : institutions) {
+            if (institution.getInstitutionName().toLowerCase().equalsIgnoreCase(institutionName)) {
+                int rating = (institution.getNoOfStudentsPlaced() * 100) / institution.getNoOfStudentsCleared();
+                if (rating >= 80) {
                     institution.setGrade("A");
-                }else {
+                } else {
                     institution.setGrade("B");
                 }
                 return institution;

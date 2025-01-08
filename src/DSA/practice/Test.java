@@ -1,23 +1,31 @@
-package DSA.practice;
+                                                                                                         package DSA.practice;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
-        int[] arr = {1,2,3,4,4,8};
-        int target = 4;
-        int index = 0;
-        System.out.println(search(arr,target,index,new ArrayList<>()));;
+        Scanner in = new Scanner(System.in);
+        System.out.println(Math.floor(Math.sqrt(26)));
     }
-    static ArrayList<Integer> search(int[] arr,int target,int index,ArrayList<Integer> list){
-        if(index == arr.length){
-            return list;
+
+    public static int sqrt(int num){
+        int start = 1;
+        int end = num;
+        int root = 0;
+        while(start<=end){
+            int mid = start+(end-start)/2;
+            if(mid*mid == num){
+                return mid;
+            }else if(mid*mid>num){
+                end--;
+                root=mid;
+            }else {
+                start++;
+                root=mid;
+            }
         }
-        if(arr[index] == target){
-            list.add(index);
-        }
-        return search(arr,target,index+1,list);
+        return root;
     }
+
+
 }
