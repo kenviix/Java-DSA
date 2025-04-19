@@ -21,11 +21,7 @@ public class SpiralMatrixSquare {
         int direction = 1;
         int count = 1;
         while (rows > 0 && cols > 0) {
-            for (int i = 0; i < cols; i++) {
-                col += direction;
-                m[row][col] = count;
-                count++;
-            }
+            
             rows--;
             for (int i = 0; i < rows; i++) {
                 row += direction;

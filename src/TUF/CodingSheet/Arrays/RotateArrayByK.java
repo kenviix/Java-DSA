@@ -1,4 +1,4 @@
-package TUF.CodingSheet;
+package TUF.CodingSheet.Arrays;
 
 //Rotate array by K elements : Block Swap Algorithm
 

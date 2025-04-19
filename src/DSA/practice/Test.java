@@ -1,31 +1,28 @@
-                                                                                                         package DSA.practice;
+package DSA.practice;
 
 import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.println(Math.floor(Math.sqrt(26)));
+        char[] chars = {'c','f','j','j'};
+        System.out.println(nextGreatestLetter(chars,'c'));
     }
 
-    public static int sqrt(int num){
-        int start = 1;
-        int end = num;
-        int root = 0;
+    static char nextGreatestLetter(char[] letters, char target) {
+        int start = 0;
+        int end = letters.length - 1;
+
         while(start<=end){
             int mid = start+(end-start)/2;
-            if(mid*mid == num){
-                return mid;
-            }else if(mid*mid>num){
-                end--;
-                root=mid;
-            }else {
-                start++;
-                root=mid;
+            if(letters[mid]>target){
+                end=mid-1;
+            }else{
+                start = mid+1;
             }
         }
-        return root;
-    }
 
+        return letters[start%letters.length];
+    }
 
 }

@@ -1,4 +1,4 @@
-package TUF.CodingSheet;
+package TUF.CodingSheet.Arrays;
 
 //Count frequency of each element in an array
 

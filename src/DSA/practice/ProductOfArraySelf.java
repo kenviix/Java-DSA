@@ -2,6 +2,8 @@ package DSA.practice;
 
 import java.util.Arrays;
 
+// dont use division operator
+
 public class ProductOfArraySelf {
     public static void main(String[] args) {
         int[] arr = {1,2,3,4};
@@ -9,23 +11,18 @@ public class ProductOfArraySelf {
     }
     static int[] product(int[] arr){
         int[] op = new int[arr.length];
-        int zeroes = 0;
-        int indexzero = -1;
-        int productOfIndex = 1;
-        for(int num : arr){
-            if(num == 0){
-                zeroes++;
-                indexzero = num;
-            } else {
-                productOfIndex *= num;
-            }
+        for (int i = 0; i < op.length; i++) {
+            op[i]=1;
         }
-        if(zeroes == 0){
-            for (int i = 0; i < arr.length; i++) {
-                op[i] = productOfIndex/arr[i];
-            }
-        } else if (zeroes == 1) {
-            op[indexzero] = productOfIndex;
+        int left = 1;
+        for (int i = 0; i < op.length; i++) {
+            op[i] *= left;
+            left *= arr[i];
+        }
+        int right =1 ;
+        for (int i = op.length - 1; i >=0 ; i--) {
+            op[i] *= right;
+            right *= arr[i];
         }
         return op;
     }
