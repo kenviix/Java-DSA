@@ -1,5 +1,7 @@
 package DSA.practice;
 
+import java.util.Arrays;
+
 public class Utilities {
     public static void Swap(int[] arr, int i, int j) {
         int temp = arr[i];
@@ -36,4 +38,36 @@ public class Utilities {
         }
         return max;
     }
+
+    public static String sortString(String inputString)
+    {
+        char[] tempArray = inputString.toCharArray();
+        Arrays.sort(tempArray);
+        return new String(tempArray);
+    }
+
+    public static int binaryPivot(int[] nums) {
+        int start = 0;
+        int end = nums.length - 1;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            if (mid < end && nums[mid] > nums[mid + 1]) {
+                return mid;
+            }
+
+            if (mid > start && nums[mid] < nums[mid - 1]) {
+                return mid - 1;
+            }
+
+            if (nums[mid] <= nums[start]) {
+                end = mid - 1;
+            } else {
+                start = mid + 1;
+            }
+
+        }
+        return -1;
+    }
+
 }
