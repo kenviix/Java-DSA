@@ -70,4 +70,13 @@ public class Utilities {
         return -1;
     }
 
+    public static int priorityInStack(char c){
+        return switch (c) {
+            case '+', '-' -> 1;
+            case '*', '/' -> 2;
+            case '^' -> 3;
+            default -> -1;
+        };
+    }
+
 }
